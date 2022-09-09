@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:43:01 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/07 14:44:18 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/09 16:00:00 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FDF_UTILS_H
 
 #include <stddef.h>
+#include <stdlib.h>
+
 
 size_t	ft_strlen(const char *string);
 char	*ft_strrchr(const char *string, int c);

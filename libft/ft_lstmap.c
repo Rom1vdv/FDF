@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 19:26:18 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/02/19 18:50:17 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/09 15:58:22 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	new_list = NULL;
 	while (lst)
 	{
-		new_elem = ft_lstnew(f(lst->content));
+		new_elem = ft_lstnew_node(f(lst->content));
 		if (!new_elem)
 		{
 			ft_lstclear(&new_list, del);

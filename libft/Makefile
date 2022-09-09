@@ -6,7 +6,7 @@
 #    By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/17 18:23:44 by romvan-d          #+#    #+#              #
-#    Updated: 2022/02/22 16:43:44 by romvan-d         ###   ########.fr        #
+#    Updated: 2022/09/09 15:48:44 by romvan-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ SRCS = ft_isalpha.c\
 		ft_strmapi.c\
 		ft_striteri.c
 		
-SRCS_BONUS =    ft_lstnew.c\
+SRCS_BONUS =    ft_lstnew_node.c\
 				ft_lstadd_front.c\
 				ft_lstsize.c\
 				ft_lstlast.c\
