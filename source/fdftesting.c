@@ -6,19 +6,19 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 15:32:36 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/09 16:59:34 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/14 16:43:30 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+// #include "../include/fdf.h"
 
-void my_mlx_put_pixel(t_image_data *data, int x, int y, int color)
-{
-    char  *dst;
+// void my_mlx_put_pixel(t_image_data *data, int x, int y, int color)
+// {
+//     char  *dst;
 
-    dst = data->address + (y * data->line_length + x * (data->bits_per_pixel / 8)); // va a la position (x,y). // va a ladresse X + offset
-    *(unsigned int *)dst = color; // met un pixel de couleur a cet endroit là. cast en unsigned int pour debloquer 4 bytes de memoires
-}
+//     dst = data->address + (y * data->line_length + x * (data->bits_per_pixel / 8)); // va a la position (x,y). // va a ladresse X + offset
+//     *(unsigned int *)dst = color; // met un pixel de couleur a cet endroit là. cast en unsigned int pour debloquer 4 bytes de memoires
+// }
 
 
 // int main(void)
@@ -57,13 +57,13 @@ void my_mlx_put_pixel(t_image_data *data, int x, int y, int color)
 //     mlx_loop(mlx);
 // }
 
-/*
-struct->machin
-=
-(*struct).machin
-*/
+// /*
+// struct->machin
+// =
+// (*struct).machin
+// */
 
-/* TO DO LIST
-Changer le path dans le makefile de la dynamic libary
-Changer GNL pour quil gere avec errno pour eviter de return NULL plusieurs fois
-*/
+// /* TO DO LIST
+// Changer le path dans le makefile de la dynamic libary
+// Changer GNL pour quil gere avec errno pour eviter de return NULL plusieurs fois
+// */
