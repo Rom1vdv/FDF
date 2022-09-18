@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:43:01 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/09 16:00:00 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/18 21:17:05 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 #include <stdlib.h>
 
 
-size_t	ft_strlen(const char *string);
+size_t	ft_strlen(char *string);
 char	*ft_strrchr(const char *string, int c);
-int	ft_strarray_len(char **array);
+int 	ft_strarray_len(char **array);
 void 	*my_malloc(size_t size);
 
 #endif

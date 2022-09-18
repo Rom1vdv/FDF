@@ -6,13 +6,13 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 16:36:25 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/13 15:56:50 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/18 21:27:55 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf_utils.h"
 
-size_t	ft_strlen(const char *string)
+size_t	ft_strlen(char *string)
 {
 	size_t	i;
     
@@ -57,6 +57,7 @@ void *my_malloc(size_t size)
 	void *tmp;
 
 	tmp = malloc(size);
+	
 	if (tmp == NULL)
 	{
 		exit(1);

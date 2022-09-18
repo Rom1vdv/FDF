@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 15:32:36 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/14 16:43:30 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/18 21:41:59 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@
 //     mlx_loop(mlx);
 // }
 
-// /*
-// struct->machin
-// =
-// (*struct).machin
-// */
+/*
+struct->machin
+=
+(*struct).machin
+*/
 
-// /* TO DO LIST
-// Changer le path dans le makefile de la dynamic libary
-// Changer GNL pour quil gere avec errno pour eviter de return NULL plusieurs fois
-// */
+/* TO DO LIST
+Changer le path dans le makefile de la dynamic libary
+Changer GNL pour quil gere avec errno pour eviter de return NULL plusieurs fois
+*/

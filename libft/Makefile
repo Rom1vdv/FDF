@@ -6,7 +6,7 @@
 #    By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/17 18:23:44 by romvan-d          #+#    #+#              #
-#    Updated: 2022/09/09 15:48:44 by romvan-d         ###   ########.fr        #
+#    Updated: 2022/09/18 19:23:21 by romvan-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,17 +45,16 @@ SRCS = ft_isalpha.c\
 		ft_strtrim.c\
 		ft_split.c\
 		ft_strmapi.c\
-		ft_striteri.c
-		
-SRCS_BONUS =    ft_lstnew_node.c\
-				ft_lstadd_front.c\
-				ft_lstsize.c\
-				ft_lstlast.c\
-				ft_lstadd_back.c\
-				ft_lstdelone.c\
-				ft_lstclear.c\
-				ft_lstiter.c\
-				ft_lstmap.c
+		ft_striteri.c\
+		ft_lstnew_node.c\
+		ft_lstadd_front.c\
+		ft_lstsize.c\
+		ft_lstlast.c\
+		ft_lstadd_back.c\
+		ft_lstdelone.c\
+		ft_lstclear.c\
+		ft_lstiter.c\
+		ft_lstmap.c
 
 OBJS =          ${SRCS:.c=.o}
 
@@ -75,11 +74,8 @@ ${NAME}:        ${OBJS}
 
 all:    ${NAME}
 
-bonus:  ${OBJS_BONUS}
-		ar r ${NAME} ${OBJS_BONUS}
-
 clean:
-		${RM} ${OBJS} ${OBJS_BONUS}
+		${RM} ${OBJS}
 
 fclean:         clean
 		${RM} ${NAME}

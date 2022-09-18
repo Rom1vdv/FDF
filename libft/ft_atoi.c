@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 15:18:19 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/02/23 20:54:13 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/18 18:39:38 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,4 @@ int	ft_atoi(const char *str)
 	if (sign == 1)
 		number *= -1;
 	return ((int) number);
-}
-#include <stdio.h>
-
-int main(void)
-{
-	printf("%d\n", ft_atoi("hello"));
 }
