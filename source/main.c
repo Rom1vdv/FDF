@@ -6,15 +6,20 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 14:46:23 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/09 16:54:55 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/15 18:39:05 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "fdf.h"
+#include "fdf.h"
 
-// int main(int argc, char **argv)
-// {
-//    (void) argc;
-//    (void) argv;
-//    return (0);
-// }
+int main(int argc, char **argv)
+{
+    if (argc == 2)
+    {
+        if (ft_check_file_extension(argv[1]) == 1)
+        {
+            
+        }
+    }
+    return (0);
+}

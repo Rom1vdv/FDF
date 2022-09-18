@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 16:17:40 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/09 15:57:43 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/15 18:39:22 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	*ft_parse_line(t_list *parsing_list)
 	parsed_line = my_malloc(sizeof(*parsed_line) * ft_strarray_len(split_array));
 	while (split_array[i])
 	{
-		parsed_number = atoi(split_array[i]);
+		parsed_number = ft_atoi(split_array[i]);
 		parsed_line[i] = parsed_number;
 		i++;
 	}
