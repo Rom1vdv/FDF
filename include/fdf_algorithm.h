@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 17:18:38 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/06 15:26:07 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:52:49 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_coordinates
 	int	y;
 }	t_coordinates;
 
-void my_mlx_put_pixel(t_image_data *data, int x, int y, int color);
+void    link_map_points(t_image_data *img, t_fdf_map *map);
+void 	my_mlx_put_pixel(t_image_data *data, int x, int y, int color);
+void	ft_draw_line(t_image_data *img, t_coordinates origin, t_coordinates end);
 
 #endif
