@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:42:19 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/22 17:37:12 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/24 19:07:17 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	ft_draw_line(t_image_data *img, t_coordinates origin, t_coordinates end)
 
 	abs_y = abs(end.y - origin.y);
 	abs_x = abs(end.x - origin.x);
+
 	if (abs_y < abs_x)
 	{
 		if (origin.x > end.x)
@@ -98,7 +99,7 @@ void	ft_draw_line(t_image_data *img, t_coordinates origin, t_coordinates end)
 		if (origin.y > end.y)
 			ft_draw_line_high(img, end, origin);
 		else
-			ft_draw_line_high(img, origin, end);	
+			ft_draw_line_high(img, origin, end);
 	}
 }
 
