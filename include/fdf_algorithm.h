@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 17:18:38 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/22 18:52:49 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/24 18:18:06 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <math.h>
+# include "fdf_parsing.h"
 # define WHITE 0x00FFFFFF
 
 typedef struct s_image_data
