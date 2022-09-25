@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 16:17:40 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/22 18:50:52 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/25 21:15:20 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,23 @@ t_list	*ft_convert_map_to_list(int map_fd)
 	return (parsing_list);
 }
 
-/*Cette fonction split un node de la liste et ajoute chaque element dans une ligne dint */
-
-int	*ft_parse_line(t_list *parsing_list)
+int	*ft_parse_line(t_list *parsing_list, size_t column_len)
 {	
 	char	**split_array;
 	int		parsed_number;
 	int		*parsed_line;
 	int		i;
+	char	*tmp;
 
 	i = 0;
+	tmp = parsing_list->content;
+	tmp[ft_strlen(tmp) - 1] = '\0';
 	split_array = ft_split(parsing_list->content, ' ');
-	parsed_line = my_malloc(sizeof(*parsed_line) * (ft_strarray_len(split_array)) + 1);
+	if (ft_strarray_len(split_array) != column_len)
+	{
+		exit(EXIT_FAILURE);
+	}
+	parsed_line = my_malloc(sizeof(*parsed_line) * (ft_strarray_len(split_array)));
 	while (split_array[i])
 	{
 		parsed_number = ft_atoi(split_array[i]);
@@ -71,14 +76,13 @@ t_fdf_map	ft_create_parsed_map(t_list *parsing_list)
 	
 	i = 0;
 	map.column_len = ft_lstsize(parsing_list);
+	map.row_len = map.column_len;
 	map.parsed_map = my_malloc(sizeof(*map.parsed_map) * map.column_len);
 	while (i < map.column_len)
 	{
-		map.parsed_map[i] = ft_parse_line(parsing_list);
+		map.parsed_map[i] = ft_parse_line(parsing_list, map.column_len);
 		i++;
 		parsing_list = parsing_list->next;
 	}
-	printf("i is equal to : %zu\n", i);
-	printf("Length of the list is : %zu\n", map.column_len);
 	return (map);
 }

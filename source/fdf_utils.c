@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 16:36:25 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/18 21:27:55 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/25 21:03:09 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ char	*ft_strrchr(const char *string, int target)
 	return (0);
 }
 
-int	ft_strarray_len(char **array)
+size_t	ft_strarray_len(char **array)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (array[i])
