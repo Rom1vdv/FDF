@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 19:51:28 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/02/23 21:37:52 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/27 15:18:08 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char	*ft_malloc_substr(char *sub_str, size_t start,
 	return (sub_str);
 }
 
-char	*ft_substr(char const *str, unsigned int start, size_t len)
+char	*ft_substr(char *str, unsigned int start, size_t len)
 {
 	char	*sub_str;
 	size_t	i;

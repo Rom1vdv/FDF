@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:42:19 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/25 21:08:40 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/27 15:11:22 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,14 @@ static void	ft_draw_line_high(t_image_data *img, t_coordinates origin,
 	delta.x = end.x - origin.x;
 	delta.y = end.y - origin.y;
 	x_sign = 1;
+	decision_variable = (2 * delta.x) - delta.y;
+	point.y = origin.y;
+	point.x = origin.x;
 	if (delta.x < 0)
 	{
 		x_sign = -1;
 		delta.x = -delta.x;
 	}
-	decision_variable = (2 * delta.x) - delta.y;
-	point.y = origin.y;
-	point.x = origin.x;
 	while (point.y <= end.y)
 	{
 		my_mlx_put_pixel(img, point.x, point.y, WHITE);

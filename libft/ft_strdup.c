@@ -6,13 +6,13 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:00:27 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/02/23 21:37:03 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/27 15:17:48 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str)
+char	*ft_strdup(char *str)
 {
 	int		i;
 	char	*copied_str;

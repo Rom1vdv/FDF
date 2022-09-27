@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:37:25 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/02/19 18:49:34 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/27 15:19:08 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_check_charset(char c, char const *set)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char *s1, char *set)
 {
 	size_t	i;
 	size_t	j;

@@ -6,7 +6,7 @@
 #    By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/17 18:23:44 by romvan-d          #+#    #+#              #
-#    Updated: 2022/09/18 19:23:21 by romvan-d         ###   ########.fr        #
+#    Updated: 2022/09/27 15:19:51 by romvan-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,6 @@ SRCS = ft_isalpha.c\
 
 OBJS =          ${SRCS:.c=.o}
 
-OBJS_BONUS = ${SRCS_BONUS:.c=.o}
 
 RM = rm -f
 
