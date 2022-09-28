@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 14:46:23 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/25 20:44:19 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:36:03 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ int main(int argc, char **argv)
             parsing_list = ft_convert_map_to_list(fd);
             map = ft_create_parsed_map(parsing_list);
             mlx = mlx_init();
-            mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello World");
+            mlx_win = mlx_new_window(mlx, 1920, 1080, "Fdf");
             img.img = mlx_new_image(mlx, 1920, 1080);
             img.address= mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
             link_map_points(&img, &map);
             mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
             mlx_loop(mlx);
-            // printf("This cell equals to : %d\n", map.parsed_map[0][0] );
+            printf("This cell equals to : %d\n", map.parsed_map[11][11] );
             
         }
     }
