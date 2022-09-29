@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 15:44:54 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/28 18:39:40 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/09/29 14:46:45 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ void    link_map_points(t_image_data *img, t_fdf_map *map)
         row = 0;
         while(row < map->row_len)
         {
-            ft_draw_line(img, (t_coordinates){(row * 50) + 200, column * 50}, (t_coordinates){(row * 50) + 200, (column + 1 )* 50});
-			ft_draw_line(img, (t_coordinates){(row * 50) + 200, column * 50}, (t_coordinates){((row + 1) * 50) + 200, column * 50});
+            if (column < map->column_len - 1)
+                ft_draw_line(img, (t_coordinates){(row * 50) + 200, column * 50}, (t_coordinates){(row * 50) + 200, (column + 1 )* 50});
+            if (row < map->row_len - 1)
+			    ft_draw_line(img, (t_coordinates){(row * 50) + 200, column * 50}, (t_coordinates){((row + 1) * 50) + 200, column * 50});
             row++;
         }
         column++;
