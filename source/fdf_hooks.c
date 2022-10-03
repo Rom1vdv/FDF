@@ -1,24 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_transformations.c                              :+:      :+:    :+:   */
+/*   fdf_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 19:51:03 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/03 23:13:51 by romvan-d         ###   ########.fr       */
+/*   Created: 2022/10/03 23:29:05 by romvan-d          #+#    #+#             */
+/*   Updated: 2022/10/03 23:29:19 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_coordinates	ft_isometric(t_coordinates coordinates, t_fdf_map *map)
-{
-	t_coordinates	transformed_coord;
-
-	transformed_coord.x = (sqrt(2) / 2) * (coordinates.x - coordinates.y);
-	transformed_coord.y = sqrt(2 / 3)
-		* map->parsed_map[coordinates.x][coordinates.y] - 1 / (sqrt(6))
-		* (coordinates.x + coordinates.y);
-	return (transformed_coord);
-}

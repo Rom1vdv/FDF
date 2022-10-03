@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 16:17:40 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/28 17:24:46 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/03 23:26:51 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 int	ft_check_file_extension(char *map_file)
 {
-
-	if(ft_strlen(map_file) > 4)
+	if (ft_strlen(map_file) > 4)
 	{
 		if (strcmp(map_file + ft_strlen(map_file) - 4, ".fdf") == 0)
 			return (1);
@@ -59,7 +58,8 @@ int	*ft_parse_line(t_list *parsing_list, size_t column_len)
 	{
 		exit(EXIT_FAILURE);
 	}
-	parsed_line = my_malloc(sizeof(*parsed_line) * (ft_strarray_len(split_array)));
+	parsed_line = my_malloc(sizeof(*parsed_line)
+			* (ft_strarray_len(split_array)));
 	while (split_array[i])
 	{
 		parsed_number = ft_atoi(split_array[i]);
@@ -71,9 +71,9 @@ int	*ft_parse_line(t_list *parsing_list, size_t column_len)
 
 t_fdf_map	ft_create_parsed_map(t_list *parsing_list)
 {
-	t_fdf_map map;
-	size_t i;
-	
+	t_fdf_map	map;
+	size_t		i;
+
 	i = 0;
 	map.column_len = ft_lstsize(parsing_list);
 	map.row_len = map.column_len;
