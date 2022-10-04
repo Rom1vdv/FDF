@@ -6,22 +6,20 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 14:46:23 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/29 14:52:51 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/04 17:54:17 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-
 int main(int argc, char **argv)
 {
-    int     fd;
-    t_list  *parsing_list;
-    t_fdf_map map;
-    void *mlx;
-    void *mlx_win;
-    t_image_data img;
-    
+    int             fd;
+    t_list          *parsing_list;
+    t_fdf_map       map;
+    t_display       display;
+    t_image_data    img;
+
     if (argc == 2)
     {
         if (ft_check_file_extension(argv[1]) == 1)
@@ -29,13 +27,15 @@ int main(int argc, char **argv)
             fd = open(argv[1], O_RDONLY);
             parsing_list = ft_convert_map_to_list(fd);
             map = ft_create_parsed_map(parsing_list);
-            mlx = mlx_init();
-            mlx_win = mlx_new_window(mlx, 1920, 1080, "FDF");
-            img.img = mlx_new_image(mlx, 1920, 1080);
-            img.address= mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-            link_map_points(&img, &map);
-            mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-            mlx_loop(mlx);
+            display.mlx = mlx_init();
+            display.window = mlx_new_window(display.mlx, 1920, 1080, "FDF");
+            img.img = mlx_new_image(display.mlx, 1920, 1080);
+            img.address = mlx_get_data_addr(img.img, &img.bits_per_pixel,
+                                            &img.line_length, &img.endian);
+            ft_link_map_points(&img, &map);
+            ft_mlx_hooks(&display);
+            mlx_put_image_to_window(display.mlx, display.window, img.img, 0, 0);
+            mlx_loop(display.mlx);
         }
     }
     return (0);

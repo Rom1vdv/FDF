@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 16:17:40 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/03 23:26:51 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/04 15:51:38 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	*ft_parse_line(t_list *parsing_list, size_t column_len)
 t_fdf_map	ft_create_parsed_map(t_list *parsing_list)
 {
 	t_fdf_map	map;
-	size_t		i;
+	int		i;
 
 	i = 0;
 	map.column_len = ft_lstsize(parsing_list);

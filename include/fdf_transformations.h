@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_hooks.c                                        :+:      :+:    :+:   */
+/*   fdf_transformations.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 23:29:05 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/04 17:59:45 by romvan-d         ###   ########.fr       */
+/*   Created: 2022/10/04 14:57:51 by romvan-d          #+#    #+#             */
+/*   Updated: 2022/10/04 14:59:22 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#ifndef FDF_TRANSFORMATIONS_H
+# define FDF_TRANSFORMATIONS_H
 
-int ft_close_window(int keycode, t_display *display)
-{
-	mlx_destroy_window(display->mlx, display->window);
-	return (0);
-}
+# include "fdf_parsing.h"
+# include "fdf_algorithm.h"
 
-void	ft_mlx_hooks(t_display *display)
-{
-	mlx_hook(display->window, 2, 1L<<0, ft_close_window, &display);
-}
+t_coordinates	ft_isometric(t_coordinates coordinates, t_fdf_map *map);
+
+#endif

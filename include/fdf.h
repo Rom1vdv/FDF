@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:45:14 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/18 19:31:09 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/04 17:52:43 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include "fdf_algorithm.h"
 # include "fdf_parsing.h"
 # include "fdf_utils.h"
+# include "fdf_transformations.h"
+# include "fdf_display.h"
+# include "fdf_hooks.h"
 # include <stdio.h>
 
 #endif

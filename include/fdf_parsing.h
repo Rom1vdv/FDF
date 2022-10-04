@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:32:59 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/25 21:09:27 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/04 15:51:12 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 typedef struct s_fdf_map
 {
     int **parsed_map;
-    size_t  row_len;
-    size_t  column_len;
+    int  row_len;
+    int  column_len;
 }   t_fdf_map;
 
 int		    ft_check_file_extension(char *map_file);
