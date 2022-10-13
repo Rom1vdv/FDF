@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 14:46:23 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/04 17:54:17 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/10 17:51:37 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,15 @@ int main(int argc, char **argv)
             parsing_list = ft_convert_map_to_list(fd);
             map = ft_create_parsed_map(parsing_list);
             display.mlx = mlx_init();
+            if (!display.mlx)
+                return (0);
             display.window = mlx_new_window(display.mlx, 1920, 1080, "FDF");
-            img.img = mlx_new_image(display.mlx, 1920, 1080);
-            img.address = mlx_get_data_addr(img.img, &img.bits_per_pixel,
+            display.img.img = mlx_new_image(display.mlx, 1920, 1080);
+            img.address = mlx_get_data_addr(display.img.img, &img.bits_per_pixel,
                                             &img.line_length, &img.endian);
             ft_link_map_points(&img, &map);
+            mlx_put_image_to_window(display.mlx, display.window, display.img.img, 0, 0);
             ft_mlx_hooks(&display);
-            mlx_put_image_to_window(display.mlx, display.window, img.img, 0, 0);
             mlx_loop(display.mlx);
         }
     }
