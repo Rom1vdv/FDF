@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 16:17:40 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/04 15:51:38 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/14 20:26:47 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,15 @@ t_list	*ft_convert_map_to_list(int map_fd)
 	return (parsing_list);
 }
 
-int	*ft_parse_line(t_list *parsing_list, size_t column_len)
+int	*ft_parse_line(t_list *parsing_list)
 {	
 	char	**split_array;
 	int		parsed_number;
 	int		*parsed_line;
 	int		i;
-	char	*tmp;
 
 	i = 0;
-	tmp = parsing_list->content;
-	tmp[ft_strlen(tmp) - 1] = '\0';
 	split_array = ft_split(parsing_list->content, ' ');
-	if (ft_strarray_len(split_array) != column_len)
-	{
-		exit(EXIT_FAILURE);
-	}
 	parsed_line = my_malloc(sizeof(*parsed_line)
 			* (ft_strarray_len(split_array)));
 	while (split_array[i])
@@ -73,14 +66,17 @@ t_fdf_map	ft_create_parsed_map(t_list *parsing_list)
 {
 	t_fdf_map	map;
 	int		i;
-
+	char *tmp;
 	i = 0;
-	map.column_len = ft_lstsize(parsing_list);
-	map.row_len = map.column_len;
-	map.parsed_map = my_malloc(sizeof(*map.parsed_map) * map.column_len);
-	while (i < map.column_len)
+	tmp = parsing_list->content;
+	tmp[ft_strlen(tmp) - 1] = '\0';
+	map.row_len = ft_lstsize(parsing_list);
+	map.column_len = ft_strarray_len(ft_split(parsing_list->content, ' '));
+	map.parsed_map = my_malloc(sizeof(*map.parsed_map) * map.row_len);
+	while (i < map.row_len)
 	{
-		map.parsed_map[i] = ft_parse_line(parsing_list, map.column_len);
+		//calculer la taille de column len ici pour pouvoir verifier si elle est correct pour chaque ligne?
+		map.parsed_map[i] = ft_parse_line(parsing_list); // peut etre rajouteru n truc pour free si ca foire
 		i++;
 		parsing_list = parsing_list->next;
 	}

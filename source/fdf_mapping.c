@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:50:01 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/10 18:53:02 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/14 18:23:21 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ void	ft_link_map_points(t_image_data *img, t_fdf_map *map)
 		matrix.x = 0;
 		while (matrix.x < map->row_len)
 		{
-			// res = ft_isometric(&matrix, map); // dams cette merde deplacer le pt et puis ajuster au ratio et renvoyer les bonnes valeurs lol 
 			res = matrix;
-			printf("%d\n", res.x);
 			if (matrix.y < map->column_len - 1)
 				ft_draw_line(img, ft_ratio(res.x, res.y, map), ft_ratio(res.x, res.y + 1, map));
 			if (matrix.x < map->row_len - 1)
