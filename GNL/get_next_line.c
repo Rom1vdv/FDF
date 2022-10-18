@@ -6,44 +6,13 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 18:56:51 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/09/07 12:26:56 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:41:40 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
-static void	*ft_bzero(void *str, size_t len)
-{
-	int				i;
-	unsigned char	*ptr;
-
-	ptr = (unsigned char *) str;
-	i = 0;
-	while (len > 0)
-	{
-		ptr[i] = 0;
-		i++;
-		len --;
-	}
-	return (str);
-}
-
-static int	ft_strchr(char *str, int c)
-{
-	int	i;
-
-	i = 0;
-	if (str)
-	{
-		while (str[i])
-		{
-			if (str[i] == c)
-				return (1);
-			i++;
-		}
-	}
-	return (0);
-}
 
 static char	*ft_handle_pre_endl(char *str, size_t len)
 {

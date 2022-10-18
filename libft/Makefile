@@ -6,7 +6,7 @@
 #    By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/17 18:23:44 by romvan-d          #+#    #+#              #
-#    Updated: 2022/09/27 15:19:51 by romvan-d         ###   ########.fr        #
+#    Updated: 2022/10/18 14:30:27 by romvan-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,6 @@ SRCS = ft_isalpha.c\
 		ft_calloc.c\
 		ft_strdup.c\
 		ft_substr.c\
-		ft_strjoin.c\
 		ft_putchar_fd.c\
 		ft_putstr_fd.c\
 		ft_putendl_fd.c\

@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 16:17:40 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/14 20:26:47 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/17 20:56:27 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ t_list	*ft_convert_map_to_list(int map_fd)
 
 	parsing_list = NULL;
 	read_line = get_next_line(map_fd);
+	if(!read_line)
+		exit(1);
 	while (read_line)
 	{
 		new_node = ft_lstnew_node(read_line);
-		if (!new_node)
-			return (NULL);
 		ft_lstadd_back(&parsing_list, new_node);
 		read_line = get_next_line(map_fd);
 	}
@@ -57,6 +57,7 @@ int	*ft_parse_line(t_list *parsing_list)
 	{
 		parsed_number = ft_atoi(split_array[i]);
 		parsed_line[i] = parsed_number;
+		//Est ce que ici je dois free split array[i] puis free tout le tableau?
 		i++;
 	}
 	return (parsed_line);

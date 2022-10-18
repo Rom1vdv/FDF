@@ -6,11 +6,12 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 14:46:23 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/10 17:51:37 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/17 20:50:18 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
 
 int main(int argc, char **argv)
 {
@@ -25,6 +26,8 @@ int main(int argc, char **argv)
         if (ft_check_file_extension(argv[1]) == 1)
         {
             fd = open(argv[1], O_RDONLY);
+            if (fd == -1)
+                return (0);
             parsing_list = ft_convert_map_to_list(fd);
             map = ft_create_parsed_map(parsing_list);
             display.mlx = mlx_init();
