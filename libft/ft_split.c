@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:50:32 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/02/24 18:22:29 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:55:23 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,17 +93,17 @@ char	**ft_split(const char *s, char c)
 	char	**matrix;
 
 	if (!s)
-		return (NULL);
+		exit(1);
 	current_word = 0;
 	total_words = ft_count_words(s, c);
 	matrix = malloc(sizeof(*matrix) * (total_words + 1));
 	if (!matrix)
-		return (NULL);
+		exit(1);
 	while (current_word < total_words)
 	{
 		matrix[current_word] = ft_matrix(s, c, matrix, current_word);
 		if (!matrix[current_word])
-			return (NULL);
+			exit (1);
 		current_word++;
 	}
 	matrix[current_word] = NULL;

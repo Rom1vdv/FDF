@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 18:56:51 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/18 14:41:40 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:45:04 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static char	*ft_handle_pre_endl(char *str, size_t len)
 	i = 0;
 	stored = malloc(sizeof(*stored) * (ft_strlen(str) - len + 1));
 	if (!stored)
-		return (NULL);
+		exit(1);
 	while (str[i] && str[i] != '\n')
 	{
 		stored[i] = str[i];
@@ -72,6 +72,8 @@ char	*get_next_line(int fd)
 	{
 		ft_bzero(buffer, BUFFER_SIZE + 1);
 		i = read(fd, buffer, BUFFER_SIZE);
+		if (i == -1)
+			exit(1);
 		remainder = ft_strjoin(remainder, buffer);
 	}
 	ft_handle_post_endl(remainder, buffer);

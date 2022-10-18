@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 19:51:03 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/17 20:52:31 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/18 20:27:03 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,9 @@ t_coordinates	ft_isometric(int x, int y, t_coordinates *coordinates, t_fdf_map *
 {
 	t_coordinates	transformed_coord;
 	
-	// printf("coucou\n");
 	transformed_coord.y = (coordinates->x - map->parsed_map[x][y]) / sqrt(2);
 	transformed_coord.x = -((coordinates->x + 2 * coordinates->y + map->parsed_map[x][y]) / sqrt(6));
 	// transformed_coord.x = (coordinates->x - map->parsed_map[x][y]) / sqrt(2);
 	// transformed_coord.y = (coordinates->x + 2 * coordinates->y + map->parsed_map[x][y]) / sqrt(6);
-	// printf("Coord X isometrique : %d\n", transformed_coord.x);
-	// printf("Coord Y isometrique : %d\n", transformed_coord.y);
 	return (transformed_coord);
 }

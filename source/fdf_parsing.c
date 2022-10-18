@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 16:17:40 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/17 20:56:27 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/18 20:42:44 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_list	*ft_convert_map_to_list(int map_fd)
 
 	parsing_list = NULL;
 	read_line = get_next_line(map_fd);
-	if(!read_line)
+	if (!read_line)
 		exit(1);
 	while (read_line)
 	{
@@ -57,17 +57,19 @@ int	*ft_parse_line(t_list *parsing_list)
 	{
 		parsed_number = ft_atoi(split_array[i]);
 		parsed_line[i] = parsed_number;
-		//Est ce que ici je dois free split array[i] puis free tout le tableau?
+		free(split_array[i]);
 		i++;
 	}
+	free(split_array);
 	return (parsed_line);
 }
 
 t_fdf_map	ft_create_parsed_map(t_list *parsing_list)
 {
 	t_fdf_map	map;
-	int		i;
-	char *tmp;
+	int			i;
+	char		*tmp;
+
 	i = 0;
 	tmp = parsing_list->content;
 	tmp[ft_strlen(tmp) - 1] = '\0';
@@ -76,10 +78,16 @@ t_fdf_map	ft_create_parsed_map(t_list *parsing_list)
 	map.parsed_map = my_malloc(sizeof(*map.parsed_map) * map.row_len);
 	while (i < map.row_len)
 	{
-		//calculer la taille de column len ici pour pouvoir verifier si elle est correct pour chaque ligne?
-		map.parsed_map[i] = ft_parse_line(parsing_list); // peut etre rajouteru n truc pour free si ca foire
-		i++;
-		parsing_list = parsing_list->next;
+
+		if ((int) ft_strarray_len(ft_split(parsing_list->content, ' '))
+			== map.column_len)
+		{
+			map.parsed_map[i] = ft_parse_line(parsing_list);
+			i++;
+			parsing_list = parsing_list->next;
+		}
+		else
+			exit(1);
 	}
 	return (map);
 }
