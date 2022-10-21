@@ -6,7 +6,7 @@
 #    By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/17 18:23:44 by romvan-d          #+#    #+#              #
-#    Updated: 2022/09/28 11:38:00 by romvan-d         ###   ########.fr        #
+#    Updated: 2022/10/21 14:58:48 by romvan-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ RM = rm -f
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g -I ./include -I ./libft -I ./mlx -I ./gnl
+CFLAGS = -Wall -Wextra -Werror -I ./include -I ./libft -I ./mlx -I ./gnl
 
 LIBS =  -lmlx -Lmlx -framework OpenGL -framework Appkit
 

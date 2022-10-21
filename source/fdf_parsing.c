@@ -6,18 +6,17 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 16:17:40 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/18 20:42:44 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/21 16:21:30 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <string.h>
 
 int	ft_check_file_extension(char *map_file)
 {
 	if (ft_strlen(map_file) > 4)
 	{
-		if (strcmp(map_file + ft_strlen(map_file) - 4, ".fdf") == 0)
+		if (ft_strcmp(map_file + ft_strlen(map_file) - 4, ".fdf") == 0)
 			return (1);
 	}
 	return (0);
@@ -70,20 +69,21 @@ t_fdf_map	ft_create_parsed_map(t_list *parsing_list)
 	int			i;
 	char		*tmp;
 
-	i = 0;
+	i = -1;
 	tmp = parsing_list->content;
 	tmp[ft_strlen(tmp) - 1] = '\0';
 	map.row_len = ft_lstsize(parsing_list);
 	map.column_len = ft_strarray_len(ft_split(parsing_list->content, ' '));
 	map.parsed_map = my_malloc(sizeof(*map.parsed_map) * map.row_len);
-	while (i < map.row_len)
+	while (++i < map.row_len)
 	{
-
+		tmp = parsing_list->content;
+		tmp[ft_strlen(tmp) - 1] = '\0';
+		map.column_len = ft_strarray_len(ft_split(parsing_list->content, ' '));
 		if ((int) ft_strarray_len(ft_split(parsing_list->content, ' '))
 			== map.column_len)
 		{
 			map.parsed_map[i] = ft_parse_line(parsing_list);
-			i++;
 			parsing_list = parsing_list->next;
 		}
 		else

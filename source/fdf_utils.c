@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 16:36:25 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/18 20:25:11 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/21 14:41:56 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,14 @@ void	*my_malloc(size_t size)
 		exit(1);
 	}
 	return (tmp);
+}
+
+int	ft_strcmp(char *string1, char *string2)
+{
+	int	i;
+
+	i = 0;
+	while (string1[i] && string1[i] == string2[i])
+		i++;
+	return ((unsigned char) string1[i] - (unsigned char) string2[i]);
 }

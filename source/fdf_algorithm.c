@@ -6,19 +6,24 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:42:19 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/17 20:57:23 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:21:11 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdio.h>
+
+void	ft_delta_sign_check(int	*coord_sign, int *delta)
+{
+	*coord_sign = -1;
+	*delta *= -1;
+}
 
 static void	ft_draw_line_low(t_image_data *img, t_coordinates origin,
 				t_coordinates end)
 {
 	int				y_sign;
 	int				decision_variable;
-    t_coordinates	point;
+	t_coordinates	point;
 	t_coordinates	delta;
 
 	delta.x = end.x - origin.x;
@@ -28,10 +33,7 @@ static void	ft_draw_line_low(t_image_data *img, t_coordinates origin,
 	point.y = origin.y;
 	point.x = origin.x;
 	if (delta.y < 0)
-	{
-		y_sign = -1;
-		delta.y = -delta.y;
-	}
+		ft_delta_sign_check(&y_sign, &delta.y);
 	while (point.x <= end.x)
 	{
 		my_mlx_put_pixel(img, point.x, point.y, WHITE);
@@ -43,7 +45,7 @@ static void	ft_draw_line_low(t_image_data *img, t_coordinates origin,
 		else
 			decision_variable = decision_variable + 2 * delta.y;
 		point.x++;
-	}	
+	}
 }
 
 static void	ft_draw_line_high(t_image_data *img, t_coordinates origin,
@@ -53,7 +55,7 @@ static void	ft_draw_line_high(t_image_data *img, t_coordinates origin,
 	int				decision_variable;
 	t_coordinates	delta;
 	t_coordinates	point;
-	
+
 	delta.x = end.x - origin.x;
 	delta.y = end.y - origin.y;
 	x_sign = 1;
@@ -61,10 +63,7 @@ static void	ft_draw_line_high(t_image_data *img, t_coordinates origin,
 	point.y = origin.y;
 	point.x = origin.x;
 	if (delta.x < 0)
-	{
-		x_sign = -1;
-		delta.x = -delta.x;
-	}
+		ft_delta_sign_check(&x_sign, &delta.x);
 	while (point.y <= end.y)
 	{
 		my_mlx_put_pixel(img, point.x, point.y, WHITE);
@@ -86,7 +85,6 @@ void	ft_draw_line(t_image_data *img, t_coordinates origin, t_coordinates end)
 
 	abs_y = abs(end.y - origin.y);
 	abs_x = abs(end.x - origin.x);
-
 	if (abs_y < abs_x)
 	{
 		if (origin.x > end.x)
@@ -103,10 +101,11 @@ void	ft_draw_line(t_image_data *img, t_coordinates origin, t_coordinates end)
 	}
 }
 
-void my_mlx_put_pixel(t_image_data *data, int x, int y, int color)
+void	my_mlx_put_pixel(t_image_data *data, int x, int y, int color)
 {
-    char  *dst;
-	
-    dst = data->address + (y * data->line_length + x * (data->bits_per_pixel / 8)); // va a la position (x,y). // va a ladresse X + offset
-    *(unsigned int *)dst = color; // met un pixel de couleur a cet endroit là. cast en unsigned int pour debloquer 4 bytes de memoires
+	char	*dst;
+
+	dst = data->address + (y * data->line_length + x
+			* (data->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }
