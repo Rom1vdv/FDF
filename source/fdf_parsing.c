@@ -6,12 +6,11 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 16:17:40 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/21 16:21:30 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/21 19:07:04 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
 int	ft_check_file_extension(char *map_file)
 {
 	if (ft_strlen(map_file) > 4)
@@ -62,7 +61,7 @@ int	*ft_parse_line(t_list *parsing_list)
 	free(split_array);
 	return (parsed_line);
 }
-
+#include <stdio.h>
 t_fdf_map	ft_create_parsed_map(t_list *parsing_list)
 {
 	t_fdf_map	map;
@@ -78,8 +77,8 @@ t_fdf_map	ft_create_parsed_map(t_list *parsing_list)
 	while (++i < map.row_len)
 	{
 		tmp = parsing_list->content;
-		tmp[ft_strlen(tmp) - 1] = '\0';
-		map.column_len = ft_strarray_len(ft_split(parsing_list->content, ' '));
+		if (tmp[ft_strlen(tmp) -1] == '\n')
+			tmp[ft_strlen(tmp) - 1] = '\0';
 		if ((int) ft_strarray_len(ft_split(parsing_list->content, ' '))
 			== map.column_len)
 		{
