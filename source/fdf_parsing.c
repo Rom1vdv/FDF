@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 16:17:40 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/21 19:07:04 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/21 20:30:33 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,19 +67,23 @@ t_fdf_map	ft_create_parsed_map(t_list *parsing_list)
 	t_fdf_map	map;
 	int			i;
 	char		*tmp;
+	char		**split_line;
+	int			j;
 
-	i = -1;
+	j = 0;
+	i = 0;
 	tmp = parsing_list->content;
 	tmp[ft_strlen(tmp) - 1] = '\0';
 	map.row_len = ft_lstsize(parsing_list);
-	map.column_len = ft_strarray_len(ft_split(parsing_list->content, ' '));
+	split_line = ft_split(parsing_list->content, ' ');
+	map.column_len = ft_strarray_len(split_line);
 	map.parsed_map = my_malloc(sizeof(*map.parsed_map) * map.row_len);
-	while (++i < map.row_len)
+	while (i < map.row_len)
 	{
 		tmp = parsing_list->content;
 		if (tmp[ft_strlen(tmp) -1] == '\n')
 			tmp[ft_strlen(tmp) - 1] = '\0';
-		if ((int) ft_strarray_len(ft_split(parsing_list->content, ' '))
+		if ((int) ft_strarray_len(split_line)
 			== map.column_len)
 		{
 			map.parsed_map[i] = ft_parse_line(parsing_list);
@@ -87,6 +91,13 @@ t_fdf_map	ft_create_parsed_map(t_list *parsing_list)
 		}
 		else
 			exit(1);
+		i++;
 	}
+	while(split_line[j])
+	{
+		free(split_line[j]);
+		j++;
+	}
+	free(split_line);
 	return (map);
 }
