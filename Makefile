@@ -6,13 +6,20 @@
 #    By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/17 18:23:44 by romvan-d          #+#    #+#              #
-#    Updated: 2022/10/21 20:16:00 by romvan-d         ###   ########.fr        #
+#    Updated: 2022/10/24 20:32:06 by romvan-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
-SRCS = $(wildcard source/*.c)
+SRCS = source/fdf_algorithm.c\
+		source/fdf_free.c\
+		source/fdf_hooks.c\
+		source/fdf_mapping.c\
+		source/fdf_parsing.c\
+		source/fdf_transformations.c\
+		source/fdf_utils.c\
+		source/main.c\
 
 OBJS = ${SRCS:.c=.o}
 
@@ -28,20 +35,20 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -I ./include -I ./libft -I ./mlx -I ./gnl
 
-# SANITIZE = -fsanitize=address -g
+# SANITIZE = -g -fsanitize=address 
 
 LIBS =  -lmlx -Lmlx -framework OpenGL -framework Appkit
 
-$(NAME): $(LIBFT) $(MLX) $(GNL) $(OBJS)
+$(NAME): libft/$(LIBFT) $(MLX) gnl/$(GNL) $(OBJS)
 		$(CC) $(SANITIZE) $(CFLAGS) $(LIBS) -o $@ libft/$(LIBFT) $(MLX) gnl/$(GNL) $(OBJS)
-$(LIBFT) :
+libft/$(LIBFT) :
 		make -C libft
 
 $(MLX) :
 		make -C mlx
 		mv ./mlx/$(MLX) .
-	
-$(GNL) :
+
+gnl/$(GNL) :
 		make -C gnl
 
 
@@ -51,7 +58,7 @@ clean:
 		$(RM) $(OBJS)
 
 fclean:         clean
-		$(RM) $(NAME)
+		$(RM) $(NAME) libft/$(LIBFT) gnl/$(GNL) $(MLX)
 
 re: fclean all
 

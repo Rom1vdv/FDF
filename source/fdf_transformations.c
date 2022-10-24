@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 19:51:03 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/21 18:20:31 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/24 19:36:01 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_coordinates	ft_ratio(int x, int y, t_fdf_map *map)
 	t_coordinates	new_coord;
 	int				ratio;
 
-	ratio = 500 / map->column_len;
+	ratio = 1000 / (map->column_len + map->row_len);
 	new_coord.x = (x * ratio) + 510;
 	new_coord.y = (y * ratio) + 610;
 	new_coord = ft_isometric(x, y, &new_coord, map);

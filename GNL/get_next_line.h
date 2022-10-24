@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:55:18 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/18 14:40:58 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/24 19:39:20 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "../libft/libft.h"
-#define BUFFER_SIZE 1000000
+# define BUFFER_SIZE 10
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);

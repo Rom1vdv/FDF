@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   fdf_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 17:05:58 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/24 18:00:41 by romvan-d         ###   ########.fr       */
+/*   Created: 2022/10/24 19:31:26 by romvan-d          #+#    #+#             */
+/*   Updated: 2022/10/24 19:43:49 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fdf.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t len)
+void	ft_free_split(char **split_line)
 {
-	int				i;
-	unsigned char	*mod_dst;
-	unsigned char	*mod_src;
+	int	j;
 
-	i = 0;
-	mod_dst = (unsigned char *) dst;
-	mod_src = (unsigned char *) src;
-	if (!dst && !src)
-		return (NULL);
-	while (len > 0)
+	j = 0;
+	while (split_line[j])
 	{
-		mod_dst[i] = mod_src[i];
-		i++;
-		len--;
+		free(split_line[j]);
+		j++;
 	}
-	return (dst);
+	free(split_line);
 }

@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:42:19 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/21 18:22:02 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/24 19:32:57 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ void	my_mlx_put_pixel(t_image_data *data, int x, int y, int color)
 {
 	char	*dst;
 
+	if (x < 0 || x >= 1920 || y < 0 || y >= 1080)
+		return ;
 	dst = data->address + (y * data->line_length + x
 			* (data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;

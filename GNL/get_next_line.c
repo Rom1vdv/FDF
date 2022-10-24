@@ -6,13 +6,11 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 18:56:51 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/18 14:45:04 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/24 17:59:55 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
-
 
 static char	*ft_handle_pre_endl(char *str, size_t len)
 {
@@ -84,19 +82,3 @@ char	*get_next_line(int fd)
 	free(remainder);
 	return (line);
 }
-
-// #include <stdio.h>
-// #include <fcntl.h>
-
-// int main(void)
-// {
-// 	int	s;
-// 	char *str;
-	
-// 	s = open("t.txt", O_RDONLY);
-// 	while((str = get_next_line(s)))
-// 	{
-// 		printf("%s", str);
-// 	}
-// 	return (0);
-// }
