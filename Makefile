@@ -6,7 +6,7 @@
 #    By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/17 18:23:44 by romvan-d          #+#    #+#              #
-#    Updated: 2022/10/24 20:32:06 by romvan-d         ###   ########.fr        #
+#    Updated: 2022/10/25 15:10:23 by romvan-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,10 +56,15 @@ all:    $(NAME)
 
 clean:
 		$(RM) $(OBJS)
+		make clean -C gnl
+		make clean -C libft
 
 fclean:         clean
-		$(RM) $(NAME) libft/$(LIBFT) gnl/$(GNL) $(MLX)
-
+		$(RM) $(NAME) $(MLX)
+		make fclean -C gnl
+		make fclean -C libft
+		make clean -C mlx
+		
 re: fclean all
 
 .PHONY: all clean fclean re
