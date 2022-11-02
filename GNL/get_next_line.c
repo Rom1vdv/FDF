@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 18:56:51 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/10/24 17:59:55 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/10/31 14:37:54 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	*get_next_line(int fd)
 	int			i;
 
 	if (fd < 0 || BUFFER_SIZE < 0)
-		return (NULL);
+		exit(1);
 	i = BUFFER_SIZE;
 	remainder = ft_strjoin(NULL, buffer);
 	while (i == BUFFER_SIZE && ft_strchr(buffer, '\n') == 0)
